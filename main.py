@@ -3,7 +3,7 @@ import yaml
 
 with open("tests.yml", 'r') as stream:
     try:
-        testyaml = yaml.load(stream)
+        testyaml = yaml.safe_load(stream)
         for x in testyaml['tests']:
             test_name = x['name']
             test_url = x['query']
