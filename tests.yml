@@ -1,0 +1,7 @@
+tests:
+  - name: Simple Test - Pass
+    query: https://github.com/
+    result: GitHub
+  - name: Simple Test - Fail
+    query: https://github.com/
+    result: If this passes I should immediately go play the lottery
