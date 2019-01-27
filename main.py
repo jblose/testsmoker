@@ -9,7 +9,7 @@ def smoketestendpoint():
     return runtests()
 
 def runtests():
-    results = ''
+    results = '<pre style-"word-wrap: break-word; white-space: pre-wrap;">'
     with open("tests.yml", 'r') as stream:
         try:
             testyaml = yaml.safe_load(stream)
@@ -17,13 +17,14 @@ def runtests():
                 test_name = x['name']
                 test_url = x['query']
                 test_check = x['result']
-                results += "# Testing: " + test_name + " \n"
+                results += "# Testing: " + test_name + '\n'
                 r = requests.get(url = test_url)
-                results += test_name.lower().replace(" ","_")
+                results += test_name.lower().replace(" ","_") + " "
                 if test_check in r.content.decode("utf-8"):
-                    results += "PASSED" + " \n"
+                    results += "1" + '\n'
                 else:
-                    results += "FAIL" + " \n"
+                    results += "0" + '\n'
+            results += "</pre>"   
         except yaml.YAMLError as exc:
             results = exc
     return results
