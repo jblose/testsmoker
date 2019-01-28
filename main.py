@@ -4,7 +4,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/metrics')
 def smoketestendpoint():
     return runtests()
 
@@ -17,7 +17,7 @@ def runtests():
                 test_name = x['name']
                 test_url = x['query']
                 test_check = x['result']
-                results += "# Testing: " + test_name + '\n'
+                # results += "# Testing: " + test_name + '\n'
                 r = requests.get(url = test_url)
                 results += test_name.lower().replace(" ","_") + " "
                 if test_check in r.content.decode("utf-8"):
