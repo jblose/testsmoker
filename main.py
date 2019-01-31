@@ -30,3 +30,6 @@ def runtests():
         except yaml.YAMLError as exc:
             results = exc
     return results
+
+if __name__ == '__main__':
+    app.run()
