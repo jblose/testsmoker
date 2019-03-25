@@ -1,17 +1,17 @@
 testgroups:
   - name: GitHub Example 1
     tests:
-      - name: Simple Test 1.1 Pass
+      - name: Simple Test 1A Pass
         query: https://github.com/
         result: GitHub
-      - name: Simple Test 1.2 Fail
+      - name: Simple Test 1B Fail
         query: https://github.com/
         result: If this passes I should immediately go play the lottery
   - name: GitHub Example 2
     tests:
-      - name: Simple Test 2.1 Pass
+      - name: Simple Test 2A Pass
         query: https://github.com/
         result: GitHub
-      - name: Simple Test 2.2 Fail
+      - name: Simple Test 2B Fail
         query: https://github.com/
         result: If this passes I should immediately go play the lottery
