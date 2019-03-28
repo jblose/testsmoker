@@ -22,8 +22,8 @@ def run_test_groups():
                 group_name = tg['name']
                 group_name_formed = group_name.lower().replace(" ","_")
                 passed_cnt = 0
-                total_cnt = 0      
-                # Iterate on tests inside testgroups          
+                total_cnt = 0
+                # Iterate on tests inside testgroups
                 for x in tg['tests']:
                     total_cnt += 1
                     test_name = x['name']
@@ -39,18 +39,18 @@ def run_test_groups():
                         passed_cnt += 1
                         results += "1" + '\n'
                     else:
-                        results += "0" + '\n'       
+                        results += "0" + '\n'
 
                 # Total tests executed for a group
                 results += "# HELP " + group_name_formed + "_total " + group_name + " Total" + '\n'
                 results += "# TYPE " + group_name_formed + "_total counter" + '\n'
                 results += group_name_formed + "_total " + str(total_cnt) + '\n'
-                
+
                 # Total Passed tests executed for the group
                 results += "# HELP " + group_name_formed + "_passed_total " + group_name + " Total" + '\n'
                 results += "# TYPE " + group_name_formed + "_passed_total counter" + '\n'
                 results += group_name_formed + "_passed_total " + str(passed_cnt) + '\n'
-                
+
                 # Total Failed tests executed for the group
                 failed_cnt = total_cnt - passed_cnt
                 results += "# HELP " + group_name_formed + "_failed_total " + group_name + " Total" + '\n'
@@ -61,4 +61,4 @@ def run_test_groups():
     return results
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host='0.0.0.0')
